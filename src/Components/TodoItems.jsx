@@ -15,9 +15,15 @@ const TodoItems = (props) => {
     setIsEditing(!isEditing);
   };
 
+  const handleToggle = () => {
+    if (!isEditing) {
+      toggleTodo(id);
+    }
+  };
+
   return (
     <div className="flex items-center my-2">
-      <div onClick={() => toggleTodo(id)} className="flex gap-2 mt-2 items-center cursor-pointer w-3/4">
+      <div onClick={handleToggle} className="flex gap-2 mt-2 items-center cursor-pointer w-3/4">
         <img src={isComplete ? tick : nottick} alt="" className="w-7 cursor-pointer" />
         {isEditing ? (
           <input
